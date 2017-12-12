@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import Hotkey from './Hotkey'
 import countries from './countries'
-import { Select, Checkbox, Wrapper } from 'cerebro-ui/Form'
+import { Select, Checkbox, Wrapper, Text } from 'cerebro-ui/Form'
 import loadThemes from 'lib/loadThemes'
 import styles from './styles.css'
 
@@ -19,7 +19,9 @@ class Settings extends Component {
       pluginsSettings: get('plugins'),
       trackingEnabled: get('trackingEnabled'),
       crashreportingEnabled: get('crashreportingEnabled'),
-      openAtLogin: get('openAtLogin')
+      openAtLogin: get('openAtLogin'),
+      customTheme: get('customTheme'),
+      customTheme_bgColor: get('customTheme_bgColor')
     }
     this.changeConfig = this.changeConfig.bind(this)
   }
@@ -31,7 +33,7 @@ class Settings extends Component {
   }
   render() {
     const {
-      hotkey, showInTray, country, theme, developerMode, cleanOnHide, openAtLogin,
+      hotkey, showInTray, country, theme, developerMode, cleanOnHide, customTheme, customTheme_bgColor, openAtLogin,
       trackingEnabled, crashreportingEnabled
     } = this.state
 
@@ -55,6 +57,16 @@ class Settings extends Component {
           value={theme}
           options={loadThemes()}
           onChange={value => this.changeConfig('theme', value)}
+        />
+        <Checkbox
+          label="Custom Theme"
+          value={customTheme}
+          onChange={value => this.changeConfig('customTheme', value)}
+        />
+        <Text
+          label="Background Color"
+          value={customTheme_bgColor}
+          onChange={value => this.changeConfig('customTheme_bgColor', value)}
         />
         <Checkbox
           label="Open at login"

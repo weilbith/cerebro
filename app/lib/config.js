@@ -36,6 +36,8 @@ const defaultSettings = memoize(() => {
     isMigratedPlugins: false,
     trackingEnabled: true,
     crashreportingEnabled: true,
+    customTheme: false,
+    customTheme_bgColor: '#ffffff',
     openAtLogin: true
   }
 })
