@@ -1,0 +1,30 @@
+:root {
+  /* Main fonts and colors */
+  --main-background-color: #005f87;
+  --main-font: system;
+  --main-font-color: #ffffff;
+
+  /* border styles */
+  --main-border: 1px solid #0087d7;
+
+  /* Secondary fonts and colors */
+  --secondary-font-color: #ffffff;
+
+  /* results list */
+  --result-background: transparent;
+  --result-title-color: var(--main-font-color);
+  --result-subtitle-color: #ffffff;
+
+  /* selected result */
+  --selected-result-title-color: #ffffff;
+  --selected-result-subtitle-color: var(--result-subtitle-color);
+  --selected-result-background: #0087d7;
+
+  /* inputs */
+  --preview-input-background: #00afd7;
+  --preview-input-color: var(--main-font-color);
+  --preview-input-border: 0;
+
+  /* filter for previews */
+  --preview-filter: invert(100%) hue-rotate(180deg) contrast(80%);;
+}
