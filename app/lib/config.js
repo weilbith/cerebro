@@ -37,8 +37,12 @@ const defaultSettings = memoize(() => {
     trackingEnabled: true,
     crashreportingEnabled: true,
     customTheme: false,
+    openAtLogin: true,
     customTheme_bgColor: '#ffffff',
-    openAtLogin: true
+    customTheme_fontColor: '#000000',
+    customTheme_borderColor: '#000000',
+    customTheme_selectColor: '#c0c0c0',
+    customTheme_specialColor: '#ffffff'
   }
 })
 

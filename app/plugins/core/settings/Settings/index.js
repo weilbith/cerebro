@@ -22,11 +22,14 @@ class Settings extends Component {
       crashreportingEnabled: get('crashreportingEnabled'),
       openAtLogin: get('openAtLogin'),
       customTheme: get('customTheme'),
-      customTheme_bgColor: get('customTheme_bgColor')
+      customTheme_bgColor: get('customTheme_bgColor'),
+      customTheme_fontColor: get('customTheme_fontColor'),
+      customTheme_borderColor: get('customTheme_borderColor'),
+      customTheme_selectColor: get('customTheme_selectColor'),
+      customTheme_specialColor: get('customTheme_specialColor')
     }
     this.changeConfig = this.changeConfig.bind(this)
     this.changeThemeConfig = this.changeThemeConfig.bind(this)
-    this.applyTheme = themizer.applyCustomTheme
   }
   changeConfig(key, value) {
     this.props.set(key, value)
@@ -40,8 +43,7 @@ class Settings extends Component {
   }
   render() {
     const {
-      hotkey, showInTray, country, theme, developerMode, cleanOnHide, customTheme, customTheme_bgColor, openAtLogin,
-      trackingEnabled, crashreportingEnabled
+      hotkey, showInTray, country, theme, developerMode, cleanOnHide, customTheme, customTheme_bgColor, customTheme_fontColor, customTheme_borderColor, customTheme_selectColor, customTheme_specialColor, openAtLogin, trackingEnabled, crashreportingEnabled
     } = this.state
 
     return (
@@ -64,16 +66,6 @@ class Settings extends Component {
           value={theme}
           options={loadThemes()}
           onChange={value => this.changeConfig('theme', value)}
-        />
-        <Checkbox
-          label="Custom Theme"
-          value={customTheme}
-          onChange={value => this.changeConfig('customTheme', value)}
-        />
-        <Text
-          label="Background Color"
-          value={customTheme_bgColor}
-          onChange={value => this.changeThemeConfig('customTheme_bgColor', value)}
         />
         <Checkbox
           label="Open at login"
@@ -105,6 +97,38 @@ class Settings extends Component {
           value={crashreportingEnabled}
           onChange={value => this.changeConfig('crashreportingEnabled', value)}
         />
+        <Checkbox
+          label="Custom Theme"
+          description="Allow to adjust the appearance of Cerebro, independently from the choosen theme."
+          value={customTheme}
+          onChange={value => this.changeConfig('customTheme', value)}
+        />
+        <Text
+          label="Background Color"
+          value={customTheme_bgColor}
+          onChange={value => this.changeThemeConfig('customTheme_bgColor', value)}
+        />
+        <Text
+          label="Font Color"
+          value={customTheme_fontColor}
+          onChange={value => this.changeThemeConfig('customTheme_fontColor', value)}
+        />
+        <Text
+          label="Border Color"
+          value={customTheme_borderColor}
+          onChange={value => this.changeThemeConfig('customTheme_borderColor', value)}
+        />
+        <Text
+          label="Selection Color"
+          value={customTheme_selectColor}
+          onChange={value => this.changeThemeConfig('customTheme_selectColor', value)}
+        />
+        <Text
+          label="Special Color"
+          value={customTheme_specialColor}
+          onChange={value => this.changeThemeConfig('customTheme_specialColor', value)}
+        />
+
       </div>
     )
   }
