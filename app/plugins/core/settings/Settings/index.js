@@ -4,6 +4,7 @@ import countries from './countries'
 import { Select, Checkbox, Wrapper, Text } from 'cerebro-ui/Form'
 import loadThemes from 'lib/loadThemes'
 import styles from './styles.css'
+import themizer from 'lib/themizer'
 
 class Settings extends Component {
   constructor(props) {
@@ -24,12 +25,18 @@ class Settings extends Component {
       customTheme_bgColor: get('customTheme_bgColor')
     }
     this.changeConfig = this.changeConfig.bind(this)
+    this.changeThemeConfig = this.changeThemeConfig.bind(this)
+    this.applyTheme = themizer.applyCustomTheme
   }
   changeConfig(key, value) {
     this.props.set(key, value)
     this.setState({
       [key]: value
     })
+  }
+  changeThemeConfig(key, value) {
+    this.changeConfig(key, value) // Update the configuration as any other value also.
+      themizer.applyCustomTheme() // Apply the new configuration that influence the theme.
   }
   render() {
     const {
@@ -66,7 +73,7 @@ class Settings extends Component {
         <Text
           label="Background Color"
           value={customTheme_bgColor}
-          onChange={value => this.changeConfig('customTheme_bgColor', value)}
+          onChange={value => this.changeThemeConfig('customTheme_bgColor', value)}
         />
         <Checkbox
           label="Open at login"
